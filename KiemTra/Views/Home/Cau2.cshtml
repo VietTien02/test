@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Cau2";
+}
+
+<h2>Cau2</h2>
+@using (Html.BeginForm("KQ", "Home", FormMethod.Post))
+{
+<table>
+    <tr>
+        <td>@Html.Label("Ma giao vien") </td>
+        <td> @Html.TextBox("magv")</td>
+
+    </tr>
+    <tr>
+        <td>@Html.Label("Ho ten") </td>
+        <td> @Html.TextBox("hoten")</td>
+
+    </tr>
+    <tr>
+        <td>@Html.Label("Trinh do") </td>
+        <td>
+
+            @{IEnumerable<string> lst = new List<string> { "Dai hoc", "Thac si", "Tien si" }; }
+            @Html.DropDownList("tringdo", new SelectList(lst, lst.FirstOrDefault()))
+
+        </td>
+
+    </tr>
+    <tr>
+        <td>@Html.Label("Luong gio") </td>
+        <td> @Html.TextBox("luonggio")</td>
+
+    </tr>
+    <tr>
+        <td>@Html.Label("Gio tinh") </td>
+        <td>
+            @Html.CheckBox("gioitinh") Nam
+        </td>
+
+    </tr>
+    <tr>
+        <td>@Html.Label("So gio") </td>
+        <td> @Html.TextBox("sogio")</td>
+
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" name="submit" value="Tinh" />
+        </td>
+    </tr>
+</table>
+            }
+

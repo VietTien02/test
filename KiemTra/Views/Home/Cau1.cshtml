@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Cau1";
+
+}
+@{ 
+    double res = 0;
+    var soGio = "";
+    var luongGio = "";
+    if (IsPost)
+    {
+        soGio = Request["sogio"];
+        luongGio = Request["luong"];
+        if(soGio.AsInt() < 100)
+        {
+            res = soGio.AsInt() * luongGio.AsInt();
+        }
+        else if (soGio.AsInt() < 200)
+        {
+            res = soGio.AsInt() * luongGio.AsInt() * 1.1;
+        }else{
+            res = soGio.AsInt() * luongGio.AsInt() * 1.2;
+        }
+    }
+}
+<h2>Cau1</h2>
+<style>
+    td {
+        padding: 5px 100px 5px 7px;
+    }
+    table {
+        border: 2px solid #000;
+    }
+</style>
+<form action="" method="post">
+
+
+    <table border="1" >
+        <tr>
+            <td>Ma giao vien</td>
+            <td>
+                <input type="text" name="maGV" />
+            </td>
+        </tr>
+        <tr>
+
+            <td>Ho ten</td>
+            <td>
+                <input type="text" name="hoTen" />
+            </td>
+        </tr>
+        <tr>
+            <td>Trinh do</td>
+            <td>
+                <select name="trinhdo">
+                    <option value="Dai hoc">Dai hoc</option>
+                    <option value="Thac si">Thac si</option>
+                    <option value="Tien si">Tien si</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Luong gio</td>
+            <td>
+                <input type="text" name="luong" />
+            </td>
+        </tr>
+        <tr>
+            <td>Gioi tinh</td>
+            <td>
+                <input type="checkbox" name="gt" />Nam
+            </td>
+        </tr>
+        <tr>
+            <td>So gio</td>
+            <td>
+                <input type="text" name="sogio" />
+            </td>
+        </tr>
+        <tr>
+            <td>Luong thanh</td>
+            <td>
+                <input type="text" name="luongthang" value="@res"/>
+            </td>
+        </tr>
+        
+            <td colspan="2" class="text-center">
+                <input type="submit" name="submit" value="Tinh" />
+            </td>
+        
+        
+    </table>
+</form>
+
